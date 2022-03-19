@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.ixidev.opencvandroidtemplate.databinding.ActivityMainBinding;
 
+import org.opencv.android.Utils;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 
@@ -49,12 +50,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void exampleUsingOpenCVFun() {
 
+
+//        Utils.bitmapToMat(); // read bitmap to mat
         Mat input = Mat.zeros(100, 100, CvType.CV_8UC1); // read input somewhere
         Mat output = Mat.zeros(100, 100, CvType.CV_8UC1);
 
         opencvExample(input.getNativeObjAddr(), output.getNativeObjAddr());
         // ....
         // todo :  show output
+
+
+//        Utils.matToBitmap(); // write mat to bitmap and display it
 
     }
 }

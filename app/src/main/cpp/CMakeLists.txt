@@ -40,6 +40,8 @@ find_library( # Sets the name of the path variable.
 # Find OpenCV
 find_package(OpenCV 4.5 REQUIRED java)
 
+# needed for converting bitmap to mat
+find_library(jnigraphics-lib jnigraphics)
 # Specifies libraries CMake should link to your target library. You
 # can link multiple libraries, such as libraries you define in this
 # build script, prebuilt third-party libraries, or system libraries.
@@ -50,5 +52,6 @@ target_link_libraries( # Specifies the target library.
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib}
+        ${jnigraphics-lib}
         ${OpenCV_LIBRARIES}
         )
