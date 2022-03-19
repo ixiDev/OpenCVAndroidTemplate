@@ -11,3 +11,16 @@ Java_com_ixidev_opencvandroidtemplate_MainActivity_stringFromJNI(
 
     return env->NewStringUTF(hello.c_str());
 }
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_ixidev_opencvandroidtemplate_MainActivity_opencvExample(
+        JNIEnv *env,
+        jobject thiz,
+        jlong input, jlong output) {
+
+
+    cv::Mat *intMat = (cv::Mat *) input;
+    cv::Mat *outMat = (cv::Mat *) input;
+
+    // todo process inMat and save result to outMat
+}

@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.ixidev.opencvandroidtemplate.databinding.ActivityMainBinding;
 
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+
 public class MainActivity extends AppCompatActivity {
 
     // Used to load the 'opencvandroidtemplate' library on application startup.
@@ -33,4 +36,25 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+
+
+    /**
+     * Example  of using jni opencv
+     * see {@link com.ixidev.opencvandroidtemplate.MainActivity#exampleUsingOpenCVFun()}
+     * @param input  : cv::Mat address
+     * @param output : cv::Mat address
+     *
+     */
+    public native void opencvExample(long input, long output);
+
+    private void exampleUsingOpenCVFun() {
+
+        Mat input = Mat.zeros(100, 100, CvType.CV_8UC1); // read input somewhere
+        Mat output = Mat.zeros(100, 100, CvType.CV_8UC1);
+
+        opencvExample(input.getNativeObjAddr(), output.getNativeObjAddr());
+        // ....
+        // todo :  show output
+
+    }
 }
